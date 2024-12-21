@@ -1,0 +1,8 @@
+__pycache__
+
+.env
+/env
+
+media_finder/static/CACHE
+
+media_finder/static/admin
