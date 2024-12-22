@@ -71,4 +71,8 @@ class Show(AbstractMedia):
     genres = models.ManyToManyField('Genre', related_name='shows')
     providers = models.ManyToManyField('Provider', blank=True, related_name='shows')
     image = models.ImageField(upload_to=show_image_upload_to)
-
+    tmdb_id = models.PositiveBigIntegerField(default=0)
+    seasons = models.PositiveIntegerField(default=1)
+    was_canceled = models.BooleanField(default=False)
+    is_complete = models.BooleanField(default=True)
+    
