@@ -47,6 +47,7 @@ def book_image_upload_to(instance, filename):
         
 class Book(AbstractMedia):
     genres = models.ManyToManyField('Genre', related_name='books')
+    providers = models.ManyToManyField('Provider', blank=True, related_name='books')
     image = models.ImageField(upload_to=book_image_upload_to)
 
 
@@ -56,6 +57,7 @@ def movie_image_upload_to(instance, filename):
         
 class Movie(AbstractMedia):
     genres = models.ManyToManyField('Genre', related_name='movies')
+    providers = models.ManyToManyField('Provider', blank=True, related_name='movies')
     image = models.ImageField(upload_to=movie_image_upload_to)
 
 
@@ -65,5 +67,6 @@ def show_image_upload_to(instance, filename):
 
 class Show(AbstractMedia):
     genres = models.ManyToManyField('Genre', related_name='shows')
+    providers = models.ManyToManyField('Provider', blank=True, related_name='shows')
     image = models.ImageField(upload_to=show_image_upload_to)
 
