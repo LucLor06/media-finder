@@ -26,7 +26,9 @@ def provider_icon_upload_to(instance, filename):
     return f'icons/providers/{slugify(instance.name)}.{ext}'
     
 class Provider(AbstractModel):
+    parent_provider = models.ForeignKey('Provider', blank=True, null=True, related_name='child_providers', on_delete=models.SET_NULL)
     icon = models.ImageField(upload_to=provider_icon_upload_to)
+    tmdb_id = models.PositiveBigIntegerField()
 
 class AbstractMedia(AbstractModel):
     year_released = models.PositiveIntegerField()
