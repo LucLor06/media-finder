@@ -19,7 +19,7 @@ class AbstractModel(models.Model):
         return self.name
 
 class Genre(AbstractModel):
-    ...
+    tmdb_id = models.PositiveBigIntegerField()
     
 def provider_icon_upload_to(instance, filename):
     ext = filename.split('.')[-1]
